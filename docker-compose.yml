@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  oracledb:
+    image: "oracledb"
+    ports:
+      - "1521:1521"
+      - "5500:5500"
+    volumes:
+      - type: volume
+        source: oracledata
+        target: /opt/oracle/oradata
+    environment:
+      ORACLE_PWD: "foobar"
+      ORACLE_CHARACTERSET: "AL32UTF8"
+
+volumes:
+  oracledata:
